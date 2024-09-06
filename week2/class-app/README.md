@@ -1,6 +1,8 @@
 # ClassApp
-Author: Rajesh Rajchal
-Class: MSSE 663 - Web Frameworks
+**Author:** Rajesh Rajchal
+
+**Class:** MSSE 663 - Web Frameworks
+
 This project was generated for week 2 Assignment
 
 ## Development server
