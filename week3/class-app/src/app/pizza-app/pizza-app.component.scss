@@ -1,0 +1,33 @@
+.pizza-viewer {
+  width: 530px;
+  position: relative;
+
+  .pizza {
+    width: 530px;
+    height: 342px;
+    position: absolute;
+    z-index: 1;
+
+    &__board {
+      background: url(../../assets/board.svg) no-repeat 0 20px;
+      background-size: contain;
+      width: 500px;
+      height: 342px;
+      position: absolute;
+      z-index: 1;
+      top: 30px;
+      left: 30px;
+    }
+
+    &__base {
+      background: url(../../assets/base.svg) no-repeat;
+      background-size: contain;
+      width: 390px;
+      height: 322px;
+      position: absolute;
+      right: 23px;
+      top: 30px;
+      z-index: 2;
+    }
+  }
+}
