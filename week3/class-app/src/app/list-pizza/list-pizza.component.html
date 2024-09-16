@@ -1,3 +1,4 @@
+<p>list-pizza works!</p>
 <section class="pizzas-list">
   <p>Here is the list of Pizza</p>
   <div class="pizzas-list-item" *ngFor="let pizza of pizzas$ | async">
@@ -7,7 +8,7 @@
     <span
       class="pizzas-list-item__toppings"
       *ngFor="let topping of pizza.toppings"
-      >{{ topping }}</span
+    >{{ topping }}</span
     >
   </div>
 </section>

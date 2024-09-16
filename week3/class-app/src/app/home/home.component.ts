@@ -7,7 +7,7 @@ import { PizzasService } from '../shared/services/pizzas.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  readonly pizzas$ = this.pizzasService.getPizzaPresets();
-
   constructor(private pizzasService: PizzasService) {}
+
+  readonly pizzas$ = this.pizzasService.getPizzaPresets();
 }

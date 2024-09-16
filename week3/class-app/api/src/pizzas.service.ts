@@ -22,4 +22,37 @@ export class PizzaService {
 
     return pizza;
   }
+
+  getPizzaById(id: string): PizzaEntity {
+    return this.getCreatedPizza(id);
+  }
+
+  createPizza(pizza: PizzaEntity): PizzaEntity {
+    this.pizzas.push(pizza);
+    return pizza;
+  }
+
+  updatePizza(id: string, updatedPizza: Partial<PizzaEntity>): PizzaEntity | null {
+    const pizzaIndex = this.pizzas.findIndex((pizza) => pizza.id === id);
+    if (pizzaIndex === -1) {
+      return null;
+    }
+    const currentPizza = this.pizzas[pizzaIndex];
+    const newPizza = { ...currentPizza, ...updatedPizza };
+    this.pizzas[pizzaIndex] = newPizza;
+
+    return newPizza;
+  }
+
+  deletePizza(id: string): boolean {
+    const pizzaIndex = this.pizzas.findIndex((pizza) => pizza.id === id);
+
+    if (pizzaIndex === -1) {
+      return false;
+    }
+
+    this.pizzas.splice(pizzaIndex, 1);
+    return true;
+  }
+
 }
