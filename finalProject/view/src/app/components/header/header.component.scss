@@ -1,6 +1,8 @@
+
+
 header {
     position: relative;
-    background: white;
+    background: linear-gradient(135deg, #74ebd5 0%, #acb6e5 100%);
     padding: 0;
     border-bottom: 1px solid #e72929;
 }
@@ -10,7 +12,7 @@ a {
 }
 
 a:hover {
-    background: #e72929;
+    background: red;
     color: white;
     cursor: pointer;
 }
@@ -41,7 +43,7 @@ ul a {
 }
 
 a span {
-    background: #ff4d4d;
+    background: red;
     color: white;
     padding: 0.1rem 0.45rem;
     border-radius: 0.9rem;
@@ -49,7 +51,7 @@ a span {
 }
 
 .menu-container {
-    //position: relative;
+    position: relative;
 }
 
 .menu {
