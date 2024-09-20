@@ -22,5 +22,5 @@ I am planning to create a web application for a Computer Solution Technology ser
 
 
 ## Resources:
-Images: Downloaded from https://www.pexels.com/search/product/, https://unsplash.com/s/photos/product, and few from google
-Many of the instruction and Code may reseble resource from https://foodmine-new.herokuapp.com
+- Images: Downloaded from https://www.pexels.com/search/product/, https://unsplash.com/s/photos/product, and few from google.
+- This project is created from the instruction: https://foodmine-new.herokuapp.com
