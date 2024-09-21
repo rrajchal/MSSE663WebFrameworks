@@ -19,4 +19,16 @@ export class PizzasService {
       .get<PizzaResponse>('/api/pizzas/presets')
       .pipe(map((data) => data.pizzas));
   }
+
+  getCreatedPizzas(): Observable<PizzaEntity[]> {
+    return this.http
+      .get<PizzaResponse>('/api/pizzas')
+      .pipe(map((data) => data.pizzas));
+  }
+
+  createPizza(pizzaSize: string, subToppings: string[]): Observable<{ msg: string }> {
+    const pizza = { size: pizzaSize, toppings: subToppings };
+    return this.http.post<{ msg: string }>('/api/pizzas/create', pizza);
+  }
+
 }
