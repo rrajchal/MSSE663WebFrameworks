@@ -5,7 +5,6 @@ import userRouter from './routers/user.router';
 import dotenv from 'dotenv';
 import { dbConnect } from './configs/database.config';
 
-
 dotenv.config();
 
 const app = express();

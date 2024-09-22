@@ -5,53 +5,82 @@ import { ProductModel } from '../models/product.model';
 
 const router = Router();
 
-router.get("/seed", asyncHandler(
+router.get("/seed_product", asyncHandler(
     async (req, res) => {
-       const foodsCount = await ProductModel.countDocuments();
-       if(foodsCount> 0){
-         res.send("Seed is already done!");
+       console.log("Populating Product database with a seed data");
+       const productsCount = await ProductModel.countDocuments();
+       if(productsCount> 0){
+         res.send("Seed data already exist!");
          return;
        }
    
        await ProductModel.create(sample_data);
-       res.send("Seed Is Done!");
+       res.send("Seed data is created!");
    }
-   ))
+));
    
+router.get("/", asyncHandler(async (req, res) => {
+    const products = await ProductModel.find();
+    console.log("Model: GET /api/products");
+    res.send(products);
+}));
 
-router.get("/", (req, res) => {
-    console.log("Backend: GET /api/products");
-    res.send(sample_data);
-});
-
-router.get("/search/:searchTerm", (req, res) => {
+router.get("/search/:searchTerm", asyncHandler (async (req, res) => {
+    const searchRegex = new RegExp(req.params.searchTerm, 'i');
     const searchTerm = req.params.searchTerm;
-    console.log("Backend: GET /api/products/search/" + searchTerm);
-    const products = sample_data.
-    filter(product => 
-        product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        product.category.toLowerCase().includes(searchTerm.toLowerCase()));
+    console.log("Model: GET search/" + searchTerm);
+    const products = await ProductModel.find({
+        $or: [
+          { name: { $regex: searchRegex } },
+          { category: { $regex: searchRegex } }
+        ]
+      });
     res.send(products);
-});
+}));
 
-router.get("/categories", (req, res) => {
-    console.log("Backend: GET /api/products/categories");
-    res.send(sample_categories);
-});
+router.get("/categories", asyncHandler (async (req, res) => {
+    console.log("Model: GET /categories");
+    const products = await ProductModel.find();
+    const categories = generateCategoriesMap(products);
+    res.send(categories);
+}));
 
-router.get("/category/:category", (req, res) => {
+router.get("/category/:category", asyncHandler (async (req, res) => {
     const categoryName = req.params.category;
-    console.log("Backend: GET /api/products/category/" + categoryName);
-    const products = sample_data.filter(product => product.category?.includes(categoryName));
+    console.log("Model: GET category/" + categoryName);
+    const products = await ProductModel.find({category: categoryName})
     res.send(products);
-});
+}));
 
-router.get("/:id", (req, res) => {
+router.get("/:id", asyncHandler (async (req, res) => {
     const productId = req.params.id;
-    console.log("Backend: /api/products/:id: " + productId);
-    const products = sample_data.find(product => product.id == productId);
+    console.log("Model: /:id: " + productId);
+    const products = await ProductModel.findById(productId);
     res.send(products);
-});
+}));
 
+
+const generateCategoriesMap = (products: any[]): any[] => {
+    const categoryMap: { [key: string]: number } = {};
+  
+    products.forEach(product => {
+      Object.keys(categoryMap).forEach(category => {
+        if (product.name.toLowerCase().includes(category.toLowerCase())) {
+          categoryMap[category]++;
+        }
+      });
+      
+      if (categoryMap[product.category]) {
+        categoryMap[product.category]++;
+      } else {
+        categoryMap[product.category] = 1;
+      }
+    });
+  
+    return Object.keys(categoryMap).map(category => ({
+      name: category,
+      count: categoryMap[category]
+    }));
+  };
 
 export default router;
