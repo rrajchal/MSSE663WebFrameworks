@@ -1,7 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { PizzaEntity } from 'api/lib/api-interfaces';
+import { Pizza, PizzaEntity, PizzaSize } from 'api/lib/api-interfaces';
 import { Observable, map } from 'rxjs';
+
+export interface PizzaForm {
+  size: PizzaSize;
+  toppings: string[];
+}
 
 interface PizzaResponse {
   msg: string;
@@ -29,6 +34,10 @@ export class PizzasService {
   createPizza(pizzaSize: string, subToppings: string[]): Observable<{ msg: string }> {
     const pizza = { size: pizzaSize, toppings: subToppings };
     return this.http.post<{ msg: string }>('/api/pizzas/create', pizza);
+  }
+
+  savePizzas(pizzas: PizzaForm[]): Observable<PizzaEntity[]> {
+    return this.http.post<PizzaEntity[]>('/api/pizzas', { pizzas });
   }
 
 }
