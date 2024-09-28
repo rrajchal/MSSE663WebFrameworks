@@ -2,8 +2,13 @@ import {Router} from 'express';
 import { sample_categories, sample_data } from '../data';
 import asyncHandler from 'express-async-handler';
 import { ProductModel } from '../models/product.model';
+import mongoose from 'mongoose';
+import morgan from 'morgan';
 
 const router = Router();
+
+// Use morgan for logging
+router.use(morgan('tiny'));
 
 router.get("/seed_product", asyncHandler(
     async (req, res) => {
@@ -59,6 +64,47 @@ router.get("/:id", asyncHandler (async (req, res) => {
     res.send(products);
 }));
 
+router.post("/create", asyncHandler(async (req, res) => {
+  console.log("Model: createProduct: ");
+  const newProduct = new ProductModel(req.body);
+  const savedProduct = await newProduct.save();
+  res.status(201).send(savedProduct);
+}));
+
+router.delete("/delete/:id", asyncHandler(async (req, res) => {
+  const productId = req.params.id;
+  console.log("Model: DELETE /:id: " + productId);
+  try {
+    const product = await ProductModel.findOne({ id: productId });
+    if (product) {
+      await product.deleteOne();
+      res.status(200).send({ message: 'Product deleted successfully', product });
+    } else {
+      res.status(404).send({ message: 'Product not found: ' + productId });
+    }
+  } catch (error) {
+    console.error("Error deleting product: " + productId + ": ", error);
+    res.status(500).send({ message: 'Internal server error' });
+  }
+}));
+
+// Update product by ID
+router.put("/update/:id", asyncHandler(async (req, res) => {
+  const productId = req.params.id;
+  const updateData = req.body;
+  console.log("Model: UPDATE /:id: " + productId);
+  try {
+    const product = await ProductModel.findOneAndUpdate({ id: productId }, updateData, { new: true });
+    if (product) {
+      res.status(200).send({ message: 'Product updated successfully', product });
+    } else {
+      res.status(404).send({ message: 'Product not found: ' + productId });
+    }
+  } catch (error) {
+    console.error("Error updating product: " + productId + ": ", error);
+    res.status(500).send({ message: 'Internal server error' });
+  }
+}));
 
 const generateCategoriesMap = (products: any[]): any[] => {
     const categoryMap: { [key: string]: number } = {};

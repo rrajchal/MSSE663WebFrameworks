@@ -5,6 +5,11 @@ import { ProductPageComponent } from './components/product-page/product-page.com
 import { CartPageComponent } from './components/cart-page/cart-page.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
+import { ManageProductsComponent } from './components/manage/manage-products/manage-products.component';
+import { CreateProductsComponent } from './components/manage/create-products/create-products.component';
+import { UpdateProductsComponent } from './components/manage/update-products/update-products.component';
+import { DeleteProductsComponent } from './components/manage/delete-products/delete-products.component';
+import { ListProductsComponent } from './components/manage/list-products/list-products.component';
 
 const routes: Routes = [
   {path: '', component:HomeComponent},
@@ -14,6 +19,11 @@ const routes: Routes = [
   {path: 'cart-page', component:CartPageComponent},
   {path: 'checkout', component:CheckoutComponent},
   {path: 'login', component:LoginPageComponent},
+  {path: 'manage-products', component:ManageProductsComponent},
+  {path: 'create', component:CreateProductsComponent},
+  {path: 'update', component:UpdateProductsComponent},
+  {path: 'delete', component:DeleteProductsComponent},
+  {path: 'view-all', component:ListProductsComponent},
 ];
 
 @NgModule({

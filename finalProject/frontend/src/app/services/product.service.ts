@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Product } from '../shared/Product';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { PRODUCTS_BY_CATEGORY_URL, PRODUCTS_BY_ID_URL, PRODUCTS_BY_SEARCH_URL, PRODUCTS_CATEGORIES_URL, PRODUCTS_URL } from '../shared/constants';
+import { CREATE_PRODUCTS, PRODUCTS_BY_CATEGORY_URL, PRODUCTS_BY_ID_URL, PRODUCTS_BY_SEARCH_URL, PRODUCTS_CATEGORIES_URL, PRODUCTS_URL } from '../shared/constants';
 import { Category } from '../shared/Category';
 
 @Injectable({
@@ -37,6 +37,12 @@ export class ProductService {
     console.log("Frontend: getAllProductsByCategory: " + category);
     return this.http.get<Product[]>(PRODUCTS_BY_CATEGORY_URL + category);
   }
+
+  createProduct(product: Product): Observable<Product> {
+    console.log("Frontend: createProduct: " + product);
+    return this.http.post<Product>(CREATE_PRODUCTS, product);
+  }
+
 
 /*
   getAll(): Observable<Product[]> {
