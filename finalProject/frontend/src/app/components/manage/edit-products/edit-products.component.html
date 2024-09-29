@@ -1,0 +1,51 @@
+<div class="edit-product-form">
+  <h2>Edit Product</h2>
+  <form (ngSubmit)="updateProduct()">
+      <div class="form-group">
+          <label>Id</label>
+          <mat-form-field>
+              <input matInput [(ngModel)]="product.id" name="id" readonly>
+          </mat-form-field>
+      </div>
+      <div class="form-group">
+          <label>Name</label>
+          <mat-form-field>
+              <input matInput [(ngModel)]="product.name" name="name">
+          </mat-form-field>
+      </div>
+      <div class="form-group">
+          <label>Category</label>
+          <mat-form-field>
+              <mat-select [(ngModel)]="product.category" name="category">
+                  <mat-option value="Hardware">Hardware</mat-option>
+                  <mat-option value="Software">Software</mat-option>
+              </mat-select>
+          </mat-form-field>
+      </div>
+      <div class="form-group">
+          <label>Price</label>
+          <mat-form-field>
+              <input matInput [(ngModel)]="product.price" name="price" type="number">
+          </mat-form-field>
+      </div>
+      <div class="form-group">
+          <label>Stock</label>
+          <mat-form-field>
+              <input matInput [(ngModel)]="product.stock" name="stock" type="number">
+          </mat-form-field>
+      </div>
+      <div class="form-group">
+          <label>Description</label>
+          <mat-form-field>
+              <textarea matInput [(ngModel)]="product.description" name="description"></textarea>
+          </mat-form-field>
+      </div>
+      <div class="form-group">
+          <label>Image URL</label>
+          <mat-form-field>
+              <input matInput [(ngModel)]="product.image" name="image">
+          </mat-form-field>
+      </div>
+      <button mat-raised-button color="primary" type="submit">Update</button>
+  </form>
+</div>

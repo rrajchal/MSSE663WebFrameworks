@@ -20,6 +20,16 @@ import { CreateProductsComponent } from './components/manage/create-products/cre
 import { UpdateProductsComponent } from './components/manage/update-products/update-products.component';
 import { DeleteProductsComponent } from './components/manage/delete-products/delete-products.component';
 import { ListProductsComponent } from './components/manage/list-products/list-products.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatIconModule } from '@angular/material/icon';
+import { EditProductsComponent } from './components/manage/edit-products/edit-products.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -38,7 +48,8 @@ import { ListProductsComponent } from './components/manage/list-products/list-pr
     CreateProductsComponent,
     UpdateProductsComponent,
     DeleteProductsComponent,
-    ListProductsComponent
+    ListProductsComponent,
+    EditProductsComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,8 +57,18 @@ import { ListProductsComponent } from './components/manage/list-products/list-pr
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    MatTableModule,
+    MatSortModule,
+    MatIconModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatOptionModule,
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

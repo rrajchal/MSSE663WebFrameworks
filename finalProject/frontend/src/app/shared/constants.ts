@@ -8,6 +8,8 @@ export const PRODUCTS_BY_ID_URL = PRODUCTS_URL + '/';
 
 export const USER_LOGIN_URL = BASE_URL + '/api/users/login';
 
-// CRUD
+// CRUD URLs
 export const CREATE_PRODUCTS = PRODUCTS_URL + '/create';
+export const DELETE_PRODUCTS = PRODUCTS_URL + '/delete';
+export const EDIT_PRODUCTS = PRODUCTS_URL + '/update';
 

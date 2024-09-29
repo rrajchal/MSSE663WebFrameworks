@@ -10,6 +10,7 @@ import { CreateProductsComponent } from './components/manage/create-products/cre
 import { UpdateProductsComponent } from './components/manage/update-products/update-products.component';
 import { DeleteProductsComponent } from './components/manage/delete-products/delete-products.component';
 import { ListProductsComponent } from './components/manage/list-products/list-products.component';
+import { EditProductsComponent } from './components/manage/edit-products/edit-products.component';
 
 const routes: Routes = [
   {path: '', component:HomeComponent},
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path: 'create', component:CreateProductsComponent},
   {path: 'update', component:UpdateProductsComponent},
   {path: 'delete', component:DeleteProductsComponent},
-  {path: 'view-all', component:ListProductsComponent},
+  {path: 'list-all', component:ListProductsComponent},
+  {path: 'edit-products', component:EditProductsComponent},
 ];
 
 @NgModule({

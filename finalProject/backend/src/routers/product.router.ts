@@ -60,7 +60,7 @@ router.get("/category/:category", asyncHandler (async (req, res) => {
 router.get("/:id", asyncHandler (async (req, res) => {
     const productId = req.params.id;
     console.log("Model: /:id: " + productId);
-    const products = await ProductModel.findById(productId);
+    const products = await ProductModel.findOne({ id: productId });
     res.send(products);
 }));
 

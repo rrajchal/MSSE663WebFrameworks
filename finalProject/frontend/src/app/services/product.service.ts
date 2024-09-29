@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Product } from '../shared/Product';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { CREATE_PRODUCTS, PRODUCTS_BY_CATEGORY_URL, PRODUCTS_BY_ID_URL, PRODUCTS_BY_SEARCH_URL, PRODUCTS_CATEGORIES_URL, PRODUCTS_URL } from '../shared/constants';
+import { CREATE_PRODUCTS, DELETE_PRODUCTS, EDIT_PRODUCTS, PRODUCTS_BY_CATEGORY_URL, PRODUCTS_BY_ID_URL, PRODUCTS_BY_SEARCH_URL, PRODUCTS_CATEGORIES_URL, PRODUCTS_URL } from '../shared/constants';
 import { Category } from '../shared/Category';
 
 @Injectable({
@@ -41,6 +41,16 @@ export class ProductService {
   createProduct(product: Product): Observable<Product> {
     console.log("Frontend: createProduct: " + product);
     return this.http.post<Product>(CREATE_PRODUCTS, product);
+  }
+
+  deleteProduct(productId: number): Observable<Product> {
+    console.log("Frontend: deleteProduct from product.service: " + productId);
+    return this.http.delete<Product>(`${DELETE_PRODUCTS}/${productId}`);
+  }
+
+  updateProduct(productId: number, product: Product): Observable<Product> {
+    console.log("Frontend: updateProduct from product.service:  " + product);
+    return this.http.put<Product>(`${EDIT_PRODUCTS}/${productId}`, product);
   }
 
 
