@@ -9,7 +9,7 @@ const routes: Routes = [
     path: '',
     component: HomeComponent,
     resolve: {
-      pizzasVM: PizzasResolver,
+      pizzas: PizzasResolver,
     },
   },
   {

@@ -4,12 +4,7 @@
     [activePizza]="activePizza"
   ></app-pizza-viewer>
 
-  <form
-    class="pizza-form"
-    [formGroup]="pizzaForm"
-    (ngSubmit)="onSubmit($event)"
-    novalidate
-  >
+  <form class="pizza-form" [formGroup]="pizzaForm" (ngSubmit)="onSubmit($event)" novalidate>
     <app-pizza-creator
       [pizzas]="pizzas"
       (add)="addPizza()"
