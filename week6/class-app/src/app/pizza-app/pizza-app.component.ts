@@ -35,10 +35,22 @@ export class PizzaAppComponent {
   get pizzas(): FormArray {
     return this.pizzaForm.get('pizzas') as FormArray;
   }
-
+/*
   total$ = this.pizzas.valueChanges.pipe(
     startWith(this.calculateTotal(this.pizzas.value)),
     map(() => this.calculateTotal(this.pizzas.value))
+  );
+
+  // Currying
+  totalCurrying$ = this.pizzas.valueChanges.pipe(
+    startWith(this.calculateTotalCurrying(this.pizzas.value)),
+    map(() => this.calculateTotalCurrying(this.pizzas.value))
+  );
+*/
+  // Hof
+  totalHof$ = this.pizzas.valueChanges.pipe(
+    startWith(this.calculateTotalHof(this.pizzas.value, this.calculatePizzaPriceHof.bind(this))),
+    map(() => this.calculateTotalHof(this.pizzas.value, this.calculatePizzaPriceHof.bind(this)))
   );
 
   constructor(private fb: FormBuilder, private store: Store<PizzasState>) {}
@@ -62,12 +74,43 @@ export class PizzaAppComponent {
     this.activePizza = index;
   }
 
+
   calculateTotal(value: Pizza[]): string {
     const price = value.reduce((acc: number, next: Pizza) => {
       const price = this.prices[next.size];
       return acc + price.base + price.toppings * next.toppings.length;
     }, 0);
     return price.toFixed(2);
+  }
+    
+  // currying
+  calculateTotalCurrying(value: Pizza[]): string {
+    console.log("Currying is used")
+    const curriedPriceCalculation = (base: number) => (toppingsPrice: number) => (numToppings: number) => {
+      return base + toppingsPrice * numToppings;
+    };
+    const price = value.reduce((acc: number, next: Pizza) => {
+      const price = this.prices[next.size];
+      const calculate = curriedPriceCalculation(price.base)(price.toppings);
+      return acc + calculate(next.toppings.length);
+    }, 0);
+
+    return price.toFixed(2);
+  }
+
+  // Higher-Order Function
+  calculateTotalHof(value: Pizza[], priceCalculator: (prices: any, pizza: Pizza) => number): string {
+    const price = value.reduce((acc: number, next: Pizza) => {
+      return acc + priceCalculator(this.prices, next);
+    }, 0);
+    return price.toFixed(2);
+  }
+
+  // Price calculation function
+  calculatePizzaPriceHof(prices: any, pizza: Pizza): number {
+    console.log("HOF is used")
+    const price = prices[pizza.size];
+    return price.base + price.toppings * pizza.toppings.length;
   }
 
   onSubmit(event: any) {

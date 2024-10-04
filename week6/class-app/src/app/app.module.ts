@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -55,6 +55,7 @@ import { PizzasEffects, reducer } from './pizza-app/state';
       maxAge: 25,
       logOnly: environment.production,
     }),
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
