@@ -11,9 +11,13 @@ import { UpdateProductsComponent } from './components/manage/update-products/upd
 import { DeleteProductsComponent } from './components/manage/delete-products/delete-products.component';
 import { ListProductsComponent } from './components/manage/list-products/list-products.component';
 import { EditProductsComponent } from './components/manage/edit-products/edit-products.component';
+import { RegisterPageComponent } from './components/register-page/register-page.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   {path: '', component:HomeComponent},
+  {path: 'profile', component:ProfileComponent},
+  {path: 'register', component: RegisterPageComponent},
   {path: 'search/:searchTerm', component:HomeComponent},
   {path: 'category/:category', component:HomeComponent},
   {path: 'product/:id', component:ProductPageComponent},

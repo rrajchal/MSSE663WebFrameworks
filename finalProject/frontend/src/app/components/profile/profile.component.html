@@ -1,0 +1,11 @@
+<div *ngIf="user && user.name" class="profile-container">
+    <h2>{{ user.name }}'s Profile</h2>
+    <div class="profile-details">
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Address:</strong> {{ user.address }}</p>
+    <p><strong>Is Admin:</strong> {{ user.isAdmin }}</p>
+    </div>
+    <button type="submit" (click)="router.navigate(['/'])">Go Back to Home</button>
+</div>
+
+  

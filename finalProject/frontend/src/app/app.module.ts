@@ -23,6 +23,7 @@ import { ListProductsComponent } from './components/manage/list-products/list-pr
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatIconModule } from '@angular/material/icon';
 import { EditProductsComponent } from './components/manage/edit-products/edit-products.component';
@@ -30,6 +31,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
+import { RegisterPageComponent } from './components/register-page/register-page.component';
+import { InputContainerComponent } from './components/templates/input-container/input-container.component';
+import { InputValidationComponent } from './components/templates/input-validation/input-validation.component';
+import { TextInputComponent } from './components/templates/text-input/text-input.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { DefaultButtonComponent } from './components/templates/default-button/default-button.component';
+
 
 @NgModule({
   declarations: [
@@ -50,9 +58,16 @@ import { MatOptionModule } from '@angular/material/core';
     DeleteProductsComponent,
     ListProductsComponent,
     EditProductsComponent,
+    RegisterPageComponent,
+    InputContainerComponent,
+    InputValidationComponent,
+    TextInputComponent,
+    ProfileComponent,
+    DefaultButtonComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
@@ -65,6 +80,11 @@ import { MatOptionModule } from '@angular/material/core';
     MatInputModule,
     MatSelectModule,
     MatOptionModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-center',
+      timeOut: 3000,
+      preventDuplicates: true,
+    }),
   ],
   providers: [
     provideAnimationsAsync()

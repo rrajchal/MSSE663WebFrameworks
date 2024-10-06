@@ -1,25 +1,24 @@
 <header>
     <div class="container">
-        <a routerLink="/" class="logo">Software Solution Technology</a>
+        <a routerLink="/" class="logo">Computer Solution Technology</a>
         <nav>
             <ul>
-                <li>
+                <li *ngIf="isAdmin">
                     <a routerLink="/manage-products">Manage Products</a>
                 </li>
                 <li>
                     <a routerLink="/">Home</a>
                 </li>
-                <li>
+                <li *ngIf="!isAuth">
                     <a routerLink="/login">Login</a>
-                </li>
-                <li class="menu-container">
-                    <a>Rajesh</a>
-                    <div class="menu">
-                        <a>Profile</a>
-                        <a>Orders</a>
-                        <a>Logout</a>
+                  </li>
+                  <li *ngIf="isAuth" class="list-container">
+                    <a routerLink="/dashboard">{{user.name}}</a>
+                    <div class="list">
+                      <a routerLink="/profile">Profile</a>
+                      <a routerLink="/" (click)="logout()">Logout</a>
                     </div>
-                </li>
+                  </li>
                 <li>
                     <a routerLink="/cart-page">
                         Cart <span *ngIf="cartQuantity">{{cartQuantity}}</span>

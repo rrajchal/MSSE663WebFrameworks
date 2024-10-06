@@ -50,22 +50,22 @@ a span {
     font-size: 1rem;
 }
 
-.menu-container {
+.list-container {
     position: relative;
 }
 
-.menu {
+.list {
     position: absolute;
     z-index: 1;
     background: whitesmoke;
     display: none;
 }
 
-.menu-container:hover .menu {
+.list-container:hover .list {
     display: block;
 }
 
-.menu a {
+.list a {
     width: 100%;
     min-width: 8rem;
 }

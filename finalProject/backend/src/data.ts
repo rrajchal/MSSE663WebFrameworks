@@ -39,6 +39,7 @@ export const sample_categories: any[] = generateCategories(sample_data);
 
 export const sample_users: any[] = [
   {
+    id: 1,
     name: "Donald Duck",
     email: "dd@gmail.com",
     password: "12345",
@@ -46,10 +47,11 @@ export const sample_users: any[] = [
     isAdmin: true,
   },
   {
+    id: 2,
     name: "Mickey Mouse",
     email: "mm@gmail.com",
     password: "12345",
-    address: "Nework",
+    address: "New York",
     isAdmin: false,
   },
 ];

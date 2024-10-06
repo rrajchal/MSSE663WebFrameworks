@@ -7,6 +7,7 @@ export const PRODUCTS_BY_CATEGORY_URL = PRODUCTS_URL + '/category/';
 export const PRODUCTS_BY_ID_URL = PRODUCTS_URL + '/';
 
 export const USER_LOGIN_URL = BASE_URL + '/api/users/login';
+export const USER_REGISTER_URL = BASE_URL + '/api/users/register';
 
 // CRUD URLs
 export const CREATE_PRODUCTS = PRODUCTS_URL + '/create';
