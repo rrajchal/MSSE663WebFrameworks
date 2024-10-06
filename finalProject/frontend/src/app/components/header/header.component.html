@@ -13,7 +13,7 @@
                     <a routerLink="/login">Login</a>
                   </li>
                   <li *ngIf="isAuth" class="list-container">
-                    <a routerLink="/dashboard">{{user.name}}</a>
+                    <a routerLink="/">{{user.name}}</a>
                     <div class="list">
                       <a routerLink="/profile">Profile</a>
                       <a routerLink="/" (click)="logout()">Logout</a>

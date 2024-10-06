@@ -1,67 +1,69 @@
-ul{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  li a{
-    height: 20rem;
-    width: 20rem;
-    border: 1px solid whitesmoke;
-    border-radius: 1rem;
-    margin: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    color: blue;
-  }
-  
-  li a:hover{
-    opacity: 0.9;
-    cursor: pointer;
-  }
-  
-  li a img{
-    object-fit: cover;
-    height: 14.5rem;
-  }
-  
-  .content{
-    margin-top: 0.3rem;
-    padding: 0.5rem 1rem;
-    position: relative;
-    height: 3rem;
-  }
-  
-  .favorite{
-    position: absolute;
-    top: 0.5rem;
-    right: 1rem;
-    font-size: 1.2rem;
-  }
-  
-  .product-item-footer{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-  
-  .price{
-    position: absolute;
-    bottom: 0;
-    left: 0.9rem;
-    padding: 0.3rem 100% 0 0;
-    color: gray;
-    margin-top: 0.7rem;
-    font-size: 1.1rem;
-  }
-  
-  .description {
-    position: absolute;
-    font-size: 0.9em;
-    color: black;
-    margin-top: 1rem;
+ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+li {
+  margin: 1rem;
+}
+
+li a {
+  height: 22rem;
+  width: 18rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 1rem;
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  background: #fff;
+  text-decoration: none;
+}
+
+li a:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+li a img {
+  object-fit: fit;
+  height: 14rem;
+  width: 100%;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  font-size: 1.1rem;
+  color: #007bff;
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.5rem;
 }
