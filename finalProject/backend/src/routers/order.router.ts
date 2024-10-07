@@ -52,4 +52,9 @@ router.post('/pay', asyncHander( async (req:any, res) => {
     res.send(order._id);
 }))
 
+router.get('/track/:id', asyncHander( async (req, res) => {
+    const order = await OrderModel.findById(req.params.id);
+    res.send(order);
+}))
+
 export default router;
