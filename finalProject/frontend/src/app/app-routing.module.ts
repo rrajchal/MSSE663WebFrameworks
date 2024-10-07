@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { ProductPageComponent } from './components/product-page/product-page.component';
 import { CartPageComponent } from './components/cart-page/cart-page.component';
-import { CheckoutComponent } from './components/checkout/checkout.component';
+import { CheckoutComponent } from './components/checkout-process/checkout/checkout.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { ManageProductsComponent } from './components/manage/manage-products/manage-products.component';
 import { CreateProductsComponent } from './components/manage/create-products/create-products.component';
@@ -13,6 +13,8 @@ import { ListProductsComponent } from './components/manage/list-products/list-pr
 import { EditProductsComponent } from './components/manage/edit-products/edit-products.component';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { AuthGuard } from './auth/auth.guard';
+import { PaymentPageComponent } from './components/checkout-process/payment-page/payment-page.component';
 
 const routes: Routes = [
   {path: '', component:HomeComponent},
@@ -22,7 +24,7 @@ const routes: Routes = [
   {path: 'category/:category', component:HomeComponent},
   {path: 'product/:id', component:ProductPageComponent},
   {path: 'cart-page', component:CartPageComponent},
-  {path: 'checkout', component:CheckoutComponent},
+  {path: 'checkout', component:CheckoutComponent, canActivate: [AuthGuard]},
   {path: 'login', component:LoginPageComponent},
   {path: 'manage-products', component:ManageProductsComponent},
   {path: 'create', component:CreateProductsComponent},
@@ -30,6 +32,7 @@ const routes: Routes = [
   {path: 'delete', component:DeleteProductsComponent},
   {path: 'list-all', component:ListProductsComponent},
   {path: 'edit-products', component:EditProductsComponent},
+  {path: 'payment', component:PaymentPageComponent},
 ];
 
 @NgModule({

@@ -10,22 +10,15 @@ input {
   }
   
   input::placeholder {
-    color: white;
-    font-size: 0.95rem;
+    flex: 1;
+    margin-right: 10px;
   }
   
   input:focus{
-  border-width: 3px;
+    border-width: 3px;
   }
   
   input-validation {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    right: 10rem;
-    height: 100%;
-    width: 12rem;
+    flex-shrink: 0;
   }
   

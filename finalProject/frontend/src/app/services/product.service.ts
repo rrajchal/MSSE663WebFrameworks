@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Product } from '../shared/Product';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { CREATE_PRODUCTS, DELETE_PRODUCTS, EDIT_PRODUCTS, PRODUCTS_BY_CATEGORY_URL, PRODUCTS_BY_ID_URL, PRODUCTS_BY_SEARCH_URL, PRODUCTS_CATEGORIES_URL, PRODUCTS_URL } from '../shared/constants';
+import { CREATE_PRODUCTS, DELETE_PRODUCTS, EDIT_PRODUCTS, PRODUCTS_BY_CATEGORY_URL, PRODUCTS_BY_ID_URL, PRODUCTS_BY_SEARCH_URL, PRODUCTS_CATEGORIES_URL, PRODUCTS_URL } from '../shared/Constants';
 import { Category } from '../shared/Category';
 
 @Injectable({

@@ -1,0 +1,79 @@
+// Variables
+$primary-color: green;
+$secondary-color: blue;
+$font-family: 'Arial, sans-serif';
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Base styles
+body {
+  font-family: $font-family;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+// Table styles
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+
+  th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    background-color: $primary-color;
+    color: #fff;
+  }
+
+  td {
+    &:first-child {
+      width: 50px;
+    }
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+}
+
+// Header
+h2 {
+  color: $primary-color;
+  text-align: center;
+  font-size: 40px;
+}
+
+h3 {
+  color: $primary-color;
+  text-align: center;
+  font-size: 15px;
+}
+
+// Icon images
+img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+// Total row
+strong {
+  color: $secondary-color;
+  font-size: 1.2em;
+}
+

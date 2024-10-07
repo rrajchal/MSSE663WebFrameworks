@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   
   constructor(cartService: CartService, private userService: UserService, public router: Router) {
     cartService.getCartObservable().subscribe((newCart) => {
-      this.cartQuantity = newCart.totalCount;
+        this.cartQuantity = newCart.totalCount;
     })
 
     userService.userObservable.subscribe((newUser) => {

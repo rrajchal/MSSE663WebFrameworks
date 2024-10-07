@@ -8,9 +8,14 @@ import { Product } from '../shared/Product';
   providedIn: 'root'
 })
 export class CartService {
+  
   private cart: Cart = this.getCartFromLocalStorage();
   private cartSubject: BehaviorSubject<Cart> = new BehaviorSubject(this.cart);
   constructor() { }
+
+  getCart(): Cart {
+    return this.cartSubject.value;
+  }
 
   addToCart(product: Product): void {
     let cartItem = this.cart.items

@@ -4,6 +4,7 @@ import productRouter from './routers/product.router';
 import userRouter from './routers/user.router';
 import dotenv from 'dotenv';
 import { dbConnect } from './configs/database.config';
+import orderRouter from "./routers/order.router";
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.use('/assets', express.static('controller/assets'));
 
 app.use("/api/products", productRouter);
 app.use("/api/users", userRouter);
+app.use("/api/orders", orderRouter);
 
 /*
 app.get("/", (req, res) => {

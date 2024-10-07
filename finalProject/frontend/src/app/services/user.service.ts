@@ -4,7 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { UserLoginInterface } from '../shared/UserLoginInterface';
 import { User } from '../shared/User';
-import { USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants';
+import { USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/Constants';
 import { UserRegisterInterface } from '../shared/UserRegisterInterface';
 import { Router } from '@angular/router';
 
@@ -13,11 +13,14 @@ const USER_KEY = 'User';
   providedIn: 'root'
 })
 export class UserService {
-  [x: string]: any;
   private userSubject = new BehaviorSubject<User>(this.getUserFromLocalStorage());
   public userObservable:Observable<User>;
   constructor(private http:HttpClient, private router: Router, private toastrService:ToastrService) {
     this.userObservable = this.userSubject.asObservable();
+  }
+
+  public get currentUser(): User{
+    return this.userSubject.value;
   }
 
   login(userLogin: UserLoginInterface):Observable<User>{

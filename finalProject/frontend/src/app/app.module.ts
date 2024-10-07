@@ -5,13 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './components/search/search.component';
 import { ProductPageComponent } from './components/product-page/product-page.component';
 import { CategoryComponent } from './components/category/category.component';
 import { CartPageComponent } from './components/cart-page/cart-page.component';
 import { TitleComponent } from './components/title/title.component';
-import { CheckoutComponent } from './components/checkout/checkout.component';
+import { CheckoutComponent } from './components/checkout-process/checkout/checkout.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -37,6 +37,10 @@ import { InputValidationComponent } from './components/templates/input-validatio
 import { TextInputComponent } from './components/templates/text-input/text-input.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { DefaultButtonComponent } from './components/templates/default-button/default-button.component';
+import { OrderItemListComponent } from './components/checkout-process/order-item-list/order-item-list.component';
+import { AuthInterceptor } from './auth/auth.interceptor';
+import { PaymentPageComponent } from './components/checkout-process/payment-page/payment-page.component';
+import { PaypalButtonComponent } from './components/checkout-process/paypal-button/paypal-button.component';
 
 
 @NgModule({
@@ -64,6 +68,9 @@ import { DefaultButtonComponent } from './components/templates/default-button/de
     TextInputComponent,
     ProfileComponent,
     DefaultButtonComponent,
+    OrderItemListComponent,
+    PaymentPageComponent,
+    PaypalButtonComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,7 +94,8 @@ import { DefaultButtonComponent } from './components/templates/default-button/de
     }),
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

@@ -61,7 +61,8 @@
   
   .price::before{
     content: "Price: ";
-    color: darkgrey;
+    color: green;
+    font-weight: bold;
   }
   
   button{

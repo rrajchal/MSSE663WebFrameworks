@@ -14,3 +14,8 @@ export const CREATE_PRODUCTS = PRODUCTS_URL + '/create';
 export const DELETE_PRODUCTS = PRODUCTS_URL + '/delete';
 export const EDIT_PRODUCTS = PRODUCTS_URL + '/update';
 
+export const ORDERS_URL = BASE_URL + '/api/orders';
+export const ORDER_CREATE_URL = ORDERS_URL + '/create';
+export const NEW_ORDER_URL = ORDERS_URL + '/newOrder';
+export const ORDER_PAY_URL = ORDERS_URL + '/pay';
+
