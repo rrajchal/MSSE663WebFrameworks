@@ -13,12 +13,12 @@ export class PaymentPageComponent {
   constructor(orderService: OrderService, router: Router) {
       orderService.getNewOrder().subscribe({
         next: (order) => {
-          console.log("Payment-page.component.ts:", order);
           this.order = order;
         },
         error:() => {
           router.navigateByUrl('/checkout');
         }
       })
+
    }
 }
