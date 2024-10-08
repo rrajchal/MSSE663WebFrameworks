@@ -67,3 +67,26 @@ li a img {
   color: #666;
   margin-top: 0.5rem;
 }
+
+@media (max-width: 768px) {
+  li a {
+    height: 13.2rem;
+    width: 10.8rem;
+  }
+
+  li a img {
+    height: 8.4rem;
+  }
+
+  .name {
+    font-size: 0.96rem;
+  }
+
+  .price {
+    font-size: 0.88rem;
+  }
+
+  .description {
+    font-size: 0.72rem;
+  }
+}

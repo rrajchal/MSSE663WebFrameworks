@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { User } from '../../shared/User';
 import { CartService } from '../../services/cart.service';
 import { UserService } from '../../services/user.service';
@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
 
   cartQuantity=0;
   user!:User;
+  menuOpen = false;
   
   constructor(cartService: CartService, private userService: UserService, public router: Router) {
     cartService.getCartObservable().subscribe((newCart) => {
@@ -39,4 +40,26 @@ export class HeaderComponent implements OnInit {
   get isAdmin() {
     return this.user.isAdmin;
   }
+
+  toggleMenu() {
+      this.menuOpen = !this.menuOpen;
+      const container = document.querySelector('.container');
+      if (!container)
+        return;
+      if (this.menuOpen) {
+          container.classList.add('menu-open');
+      } else {
+          container.classList.remove('menu-open');
+      }
+  }
+
+  @HostListener('document:click', ['$event'])
+  handleClickOutside(event: Event) {
+    const container = document.querySelector('.container');
+    if (container && !container.contains(event.target as Node)) {
+      this.menuOpen = false;
+      container.classList.remove('menu-open');
+    }
+  }
+
 }

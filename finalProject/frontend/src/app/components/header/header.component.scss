@@ -1,5 +1,3 @@
-
-
 header {
     position: relative;
     background: linear-gradient(135deg, #74ebd5 0%, #acb6e5 100%);
@@ -21,14 +19,19 @@ a:hover {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    position: relative; 
 }
 
-a.logo {
+a.company {
     font-weight: bold;
     padding: 1rem;
-    font-size: 3rem;
+    font-size: 2rem;
     display: block;
     text-align: center !important;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
 }
 
 ul {
@@ -68,4 +71,100 @@ a span {
 .list a {
     width: 100%;
     min-width: 8rem;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+        font-size: 2rem;
+        cursor: pointer;
+        margin-right: 1rem;
+        color: blue;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .menu-open nav {
+        display: block;
+    }
+
+    .menu-open .menu-icon {
+        display: none;
+    }
+
+    .container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    a.company {
+        font-size: 1.5rem;
+        padding: 0.5rem;
+    }
+
+    a.company::after {
+        content: "CST";
+        display: block;
+    }
+
+    a.company {
+        visibility: hidden;
+    }
+
+    a.company::after {
+        visibility: visible;
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+    }
+
+    ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    ul li {
+        width: 100%;
+        text-align: left;
+    }
+
+    ul li a {
+        padding: 0.5rem 1rem;
+        width: 100%;
+    }
+
+    .list-container {
+        width: 100%;
+    }
+
+    .list {
+        position: static;
+        width: 100%;
+    }
+
+    .list a {
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (min-width: 769px) {
+    .menu-icon {
+        display: none;
+    }
+
+    nav {
+        display: flex;
+    }
+
+    a.company::after {
+        display: none;
+    }
+
+    a.company {
+        visibility: visible;
+    }
 }
