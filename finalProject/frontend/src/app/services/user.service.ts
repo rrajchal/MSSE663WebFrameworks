@@ -4,7 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { UserLoginInterface } from '../shared/UserLoginInterface';
 import { User } from '../shared/User';
-import { USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/Constants';
+import { USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants';
 import { UserRegisterInterface } from '../shared/UserRegisterInterface';
 import { Router } from '@angular/router';
 

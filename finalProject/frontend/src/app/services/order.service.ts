@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { NEW_ORDER_URL, ORDER_CREATE_URL, ORDER_PAY_URL, ORDER_TRACK_URL } from '../shared/Constants';
+import { NEW_ORDER_URL, ORDER_CREATE_URL, ORDER_PAY_URL, ORDER_TRACK_URL } from '../shared/constants';
 import { Order } from '../shared/Order';
 import { Observable } from 'rxjs';
 
