@@ -2,11 +2,12 @@
     "name": "computer-solution-technology",
     "version": "1.0.0",
     "engines": {
-        "node": ">=18 <23"
+      "node": ">=18 <23"
     },
     "scripts": {
-        "start": "cd backend/built && node server.js",
-        "prebuild": "cd backend && npm run build",
-        "build": "cd frontend && npm run build"
+      "start": "cd backend/built && node server.js",
+      "prebuild": "cd backend && npm run build",
+      "build": "cd frontend && npm run build",
+      "full-build": "npm run prebuild && npm run build"
     }
-}
+  }
