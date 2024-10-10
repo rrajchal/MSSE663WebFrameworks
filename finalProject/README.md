@@ -1,26 +1,27 @@
 ## Project Name: Software Solution Technology
 ## Author: Rajesh Rajchal
 ## Class: MSSE 663 - Web Frameworks
+## Date: 10/10/2024
 
-## Progress
-09/20/2024: Added backend - Data is displayed from backend
+# Computer Solution Technology Service
 
 ## Description
-I plan to develop a web application for a Computer Solution Technology service. This website will offer comprehensive support for both hardware and software needs. The software architecture will follow the MVC (Model-View-Controller) design pattern, where the user will interact with the controller, and the controller will connect to the database.
-Key Features:
-1.	Hardware Support:
-    - An inventory system displaying available products directly in the browser.
-2.	Software and Technical Support:
-    - A detailed list of services and their respective prices.
-3.	User Experience:
-    - Users will be able to purchase hardware and software through the website.
-    - The payment process will be streamlined with proper credit card handling. I am planning to use an API or a third-party credit card validation system. 
-    - Upon purchase, users will receive confirmation via email, text, or message.
+I have developed a web application for a Computer Solution Technology service that offers comprehensive support for both hardware and software needs. The software architecture is a mix between MVC (Model-View-Controller) and client-server design patterns, ensuring efficient data management and a seamless user experience.
 
-## MVC Architecture:
-I am planning to create a web application for a Computer Solution Technology service web application that offers comprehensive support for both hardware and software needs. The application will feature an inventory system for hardware, a detailed list of software services, and a streamlined purchasing process, all structured using the MVC architecture to ensure efficient data management and a seamless user experience.
+### Key Features:
+1. **Hardware Support**:
+   - An inventory system displaying available products directly in the browser.
+2. **Software and Technical Support**:
+   - A detailed list of services and their respective prices.
+3. **User Experience**:
+   - Users can view product details, add products to the cart, and purchase items.
+   - The payment process is streamlined with proper credit card handling, using an API or a third-party credit card validation system.
+   - Upon purchase, users receive confirmation via email, text, or message.
+4. **Admin Features**:
+   - Admin users can manage products, including creating, viewing, updating, and deleting products.
 
+### Project Repository
+The final project is hosted on GitHub and can be accessed here.
+https://github.com/rrajchal/MSSE663WebFrameworks/tree/final_project_rajesh/finalProject
 
-## Resources:
-- Images: Downloaded from https://www.pexels.com/search/product/, https://unsplash.com/s/photos/product, and few from google.
-- This project is created from the instruction: https://foodmine-new.herokuapp.com
+Feel free to explore the repository and let me know if you have any questions or need further assistance!
