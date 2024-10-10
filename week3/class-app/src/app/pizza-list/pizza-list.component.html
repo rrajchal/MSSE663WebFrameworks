@@ -1,0 +1,5 @@
+<p>pizza-list works! The list is seed data provided by the professor. </p>
+<div *ngFor="let pizza of pizzaPresets">
+  <h3>{{ pizza.size }} Pizza</h3>
+  <p>Toppings: {{ pizza.toppings.join(', ') || 'None' }}</p>
+</div>

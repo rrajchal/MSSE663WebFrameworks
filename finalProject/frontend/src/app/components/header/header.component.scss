@@ -1,0 +1,179 @@
+header {
+    position: relative;
+    background: linear-gradient(135deg, #74ebd5 0%, #acb6e5 100%);
+    padding: 0;
+    border-bottom: 1px solid blue;
+}
+
+a {
+    color: blue;
+}
+
+a:hover {
+    background: red;
+    color: white;
+    cursor: pointer;
+}
+
+.container {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+a.company {
+    padding: 1rem;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+}
+
+ul a {
+    padding: 1rem;
+    display: inline-block;
+}
+
+a span {
+    background: green;
+    color: white;
+    padding: 0.1rem 0.45rem;
+    border-radius: 0.9rem;
+    font-size: 1rem;
+}
+
+.list-container {
+    position: relative;
+}
+
+.list {
+    position: absolute;
+    z-index: 1;
+    background: whitesmoke;
+    display: none;
+}
+
+.list-container:hover .list {
+    display: block;
+}
+
+.list a {
+    width: 100%;
+    min-width: 8rem;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 1rem;
+}
+
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+        font-size: 2rem;
+        cursor: pointer;
+        margin-right: 1rem;
+        color: blue;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .menu-open nav {
+        display: block;
+    }
+
+    .menu-open .menu-icon {
+        display: none;
+    }
+
+    .container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    a.company {
+        font-size: 1.5rem;
+        padding: 0.5rem;
+    }
+
+    a.company::after {
+        content: "CST";
+        display: block;
+    }
+
+    a.company {
+        visibility: hidden;
+    }
+
+    a.company::after {
+        visibility: visible;
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+        left: 60px;
+    }
+
+    .logo {
+        visibility: visible;
+    }
+
+    ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    ul li {
+        width: 100%;
+        text-align: left;
+    }
+
+    ul li a {
+        padding: 0.5rem 1rem;
+        width: 100%;
+    }
+
+    .list-container {
+        width: 100%;
+    }
+
+    .list {
+        position: static;
+        width: 100%;
+    }
+
+    .list a {
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (min-width: 769px) {
+    .menu-icon {
+        display: none;
+    }
+
+    nav {
+        display: flex;
+    }
+
+    a.company::after {
+        display: none;
+    }
+
+    a.company {
+        visibility: visible;
+    }
+}

@@ -1,0 +1,58 @@
+.create-product-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.create-product-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.create-product-form div {
+  margin-bottom: 15px;
+}
+
+.create-product-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.create-product-form input, .create-product-form textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.create-product-form button {
+  display: block;
+  width: 120px;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 auto; /* Center the button */
+}
+
+.create-product-form button:hover {
+  background-color: blue;
+}
+
+.category-container {
+  display: flex;
+  align-items: center;
+}
+
+.category-container label {
+  margin-right: 60px;
+}
+
+.category-container input[type="radio"] {
+  margin-left: 1px; 
+  margin-right: 1px;
+}

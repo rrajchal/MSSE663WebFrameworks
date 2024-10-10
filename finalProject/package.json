@@ -1,0 +1,14 @@
+{
+  "name": "computer-solution-technology",
+  "version": "1.0.0",
+  "engines": {
+    "node": "20.15.1"
+  },
+  "scripts": {
+    "preinstall": "npm install -g @angular/cli",
+    "start": "cd backend/built && node server.js",
+    "prebuild": "cd backend && npm run build",
+    "build": "cd frontend && npm run build",
+    "full-build": "npm run prebuild && npm run build"
+  }
+}

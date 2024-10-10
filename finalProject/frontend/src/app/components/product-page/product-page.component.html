@@ -1,0 +1,24 @@
+<app-not-found [visible]="!product" notFoundMessage="Product Not Found" resetLinkText="Back To Homepage"></app-not-found>
+<div *ngIf="product" class="container">
+    <img [src]="product.image" [alt]="product.name"/>
+    <div class="details">
+        <div class="header">
+          <span class="name">
+            {{product.name}}
+          </span>
+        </div>
+
+        <div class="price">
+          <span>
+            {{product.price | currency}}
+          </span>
+        </div>
+        <div class="category">
+            <span>
+                {{product.category}}
+            </span>
+        </div>
+    
+        <button (click)="addToCart()">Add To Cart</button>
+    </div>
+</div>

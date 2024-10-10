@@ -1,0 +1,33 @@
+<header>
+    <div class="container">
+        <a routerLink="/" class="company"><img src="assets/logo.svg" alt="Logo" class="logo">Computer Solution Technology</a>
+        <div class="menu-icon" (click)="toggleMenu()">
+            ☰ <!-- Unicode for the hamburger icon -->
+        </div>
+        <nav>
+            <ul>
+                <li *ngIf="isAdmin">
+                    <a routerLink="/manage-products">Manage Products</a>
+                </li>
+                <li>
+                    <a routerLink="/">Home</a>
+                </li>
+                <li *ngIf="!isAuth">
+                    <a routerLink="/login">Login</a>
+                </li>
+                <li *ngIf="isAuth" class="list-container">
+                    <a routerLink="/">{{user.name}}</a>
+                    <div class="list">
+                        <a routerLink="/profile">Profile</a>
+                        <a routerLink="/" (click)="logout()">Logout</a>
+                    </div>
+                </li>
+                <li>
+                    <a routerLink="/cart-page">
+                        Cart <span *ngIf="cartQuantity">{{cartQuantity}}</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>

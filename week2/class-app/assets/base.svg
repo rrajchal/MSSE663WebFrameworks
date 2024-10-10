@@ -1,0 +1,20 @@
+<svg width="390" height="322" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="390" height="322" fill="none" />
+
+  <!-- Pizza base -->
+  <circle cx="195" cy="161" r="150" fill="sandybrown" />
+
+  <!-- Pizza sauce -->
+  <circle cx="195" cy="161" r="130" fill="tomato" />
+
+  <!-- Cheese -->
+  <circle cx="195" cy="161" r="110" fill="gold" />
+
+  <!-- Pepperoni slices -->
+  <circle cx="145" cy="111" r="20" fill="maroon" />
+  <circle cx="245" cy="111" r="20" fill="maroon" />
+  <circle cx="145" cy="211" r="20" fill="maroon" />
+  <circle cx="245" cy="211" r="20" fill="maroon" />
+  <circle cx="195" cy="161" r="20" fill="maroon" />
+</svg>
