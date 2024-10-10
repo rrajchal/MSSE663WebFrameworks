@@ -13,10 +13,10 @@ exports.sample_data = [
     { id: 9, name: 'Network Setup', category: 'Software', price: 120, description: 'Setup and configure network', image: 'assets/network_setup.jpg' },
     { id: 10, name: 'Hardware Repair', category: 'Software', price: 200, description: 'Repair hardware issues', image: 'assets/hardware_repair.jpg' },
 ];
-var generateCategories = function (products) {
-    var categoryMap = {};
-    products.forEach(function (product) {
-        Object.keys(categoryMap).forEach(function (category) {
+const generateCategories = (products) => {
+    const categoryMap = {};
+    products.forEach(product => {
+        Object.keys(categoryMap).forEach(category => {
             if (product.name.toLowerCase().includes(category.toLowerCase())) {
                 categoryMap[category]++;
             }
@@ -28,10 +28,10 @@ var generateCategories = function (products) {
             categoryMap[product.category] = 1;
         }
     });
-    return Object.keys(categoryMap).map(function (category) { return ({
+    return Object.keys(categoryMap).map(category => ({
         name: category,
         count: categoryMap[category]
-    }); });
+    }));
 };
 exports.generateCategories = generateCategories;
 exports.sample_categories = (0, exports.generateCategories)(exports.sample_data);
@@ -53,3 +53,4 @@ exports.sample_users = [
         isAdmin: false,
     },
 ];
+//# sourceMappingURL=data.js.map

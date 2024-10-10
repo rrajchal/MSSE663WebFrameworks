@@ -6,9 +6,9 @@
   },
   "scripts": {
     "preinstall": "npm install -g @angular/cli",
-    "start": "cd /opt/render/project/src/finalProject/backend/built && node server.js",
-    "prebuild": "cd /opt/render/project/src/finalProject/backend && npm run build",
-    "build": "cd /opt/render/project/src/finalProject/frontend && npm run build",
+    "start": "cd backend/built && node server.js",
+    "prebuild": "cd backend && npm run build",
+    "build": "cd frontend && npm run build",
     "full-build": "npm run prebuild && npm run build"
   }
 }

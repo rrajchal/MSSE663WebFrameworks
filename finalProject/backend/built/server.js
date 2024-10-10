@@ -3,15 +3,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var express_1 = __importDefault(require("express"));
-var cors_1 = __importDefault(require("cors"));
-var product_router_1 = __importDefault(require("./routers/product.router"));
-var user_router_1 = __importDefault(require("./routers/user.router"));
-var dotenv_1 = __importDefault(require("dotenv"));
-var database_config_1 = require("./configs/database.config");
-var order_router_1 = __importDefault(require("./routers/order.router"));
+const express_1 = __importDefault(require("express"));
+const cors_1 = __importDefault(require("cors"));
+const product_router_1 = __importDefault(require("./routers/product.router"));
+const user_router_1 = __importDefault(require("./routers/user.router"));
+const dotenv_1 = __importDefault(require("dotenv"));
+const database_config_1 = require("./configs/database.config");
+const order_router_1 = __importDefault(require("./routers/order.router"));
 dotenv_1.default.config();
-var app = (0, express_1.default)();
+const app = (0, express_1.default)();
 (0, database_config_1.dbConnect)(); // Connect Database to the database name "db"
 app.use(express_1.default.json());
 app.use((0, cors_1.default)({
@@ -89,7 +89,8 @@ const generateTokenReponse = (user: any) => {
       return user;
 }
 */
-var port = 5000;
-app.listen(port, function () {
+const port = 5000;
+app.listen(port, () => {
     console.log("Backend: Website served on http://localhost:" + port);
 });
+//# sourceMappingURL=server.js.map

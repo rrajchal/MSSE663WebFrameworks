@@ -1,15 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OrderModel = exports.OrderItemSchema = void 0;
-var mongoose_1 = require("mongoose");
-var product_model_1 = require("./product.model");
-var order_status_1 = require("../constants/order_status");
+const mongoose_1 = require("mongoose");
+const product_model_1 = require("./product.model");
+const order_status_1 = require("../constants/order_status");
 exports.OrderItemSchema = new mongoose_1.Schema({
     product: { type: product_model_1.ProductSchema, required: true },
     price: { type: Number, required: true },
     quantity: { type: Number, required: true }
 });
-var orderSchema = new mongoose_1.Schema({
+const orderSchema = new mongoose_1.Schema({
     name: { type: String, required: true },
     address: { type: String, required: true },
     paymentId: { type: String },
@@ -27,3 +27,4 @@ var orderSchema = new mongoose_1.Schema({
     }
 });
 exports.OrderModel = (0, mongoose_1.model)('order', orderSchema);
+//# sourceMappingURL=order.model.js.map
