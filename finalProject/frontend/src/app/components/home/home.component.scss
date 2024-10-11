@@ -1,3 +1,25 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.attract-text {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #007bff;
+  margin: 2rem 0;
+  background: linear-gradient(to right, #f8f9fa, #e9ecef);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.attract-text:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
 ul {
   display: flex;
   justify-content: center;
@@ -68,7 +90,55 @@ li a img {
   margin-top: 0.5rem;
 }
 
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+}
+
+.footer-info {
+  margin-bottom: 10px;
+}
+
+.footer-info p {
+  margin: 5px 0;
+}
+
+.footer-info a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-info a:hover {
+  text-decoration: underline;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.social-link:hover {
+  color: #007bff;
+}
+
 @media (max-width: 768px) {
+  .attract-text {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+
   li a {
     height: 13.2rem;
     width: 10.8rem;

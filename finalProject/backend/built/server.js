@@ -10,18 +10,30 @@ const user_router_1 = __importDefault(require("./routers/user.router"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const database_config_1 = require("./configs/database.config");
 const order_router_1 = __importDefault(require("./routers/order.router"));
+const path_1 = __importDefault(require("path"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 (0, database_config_1.dbConnect)(); // Connect Database to the database name "db"
 app.use(express_1.default.json());
 app.use((0, cors_1.default)({
     credentials: true,
-    origin: ["http://localhost:4200"]
+    //origin: ["http://localhost:4200"]
+    origin: ["http://localhost:4200", "https://computer-solution-technology.web.app"]
 }));
 app.use('/assets', express_1.default.static('controller/assets'));
 app.use("/api/products", product_router_1.default);
 app.use("/api/users", user_router_1.default);
 app.use("/api/orders", order_router_1.default);
+// Serve static files for the frontend
+app.use(express_1.default.static(path_1.default.join(__dirname, 'public')));
+// Handle client-side routing
+app.get('*', (req, res) => {
+    res.sendFile(path_1.default.join(__dirname, 'public', 'index.html'));
+});
+const port = 5000;
+app.listen(port, () => {
+    console.log("Backend: Website served on http://localhost:" + port);
+});
 /*
 app.get("/", (req, res) => {
     console.log("Backend: GET /");
@@ -88,9 +100,5 @@ const generateTokenReponse = (user: any) => {
       user.token = token;
       return user;
 }
-*/
-const port = 5000;
-app.listen(port, () => {
-    console.log("Backend: Website served on http://localhost:" + port);
-});
+*/ 
 //# sourceMappingURL=server.js.map

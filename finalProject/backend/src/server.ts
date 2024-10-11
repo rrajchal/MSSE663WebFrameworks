@@ -5,6 +5,7 @@ import userRouter from './routers/user.router';
 import dotenv from 'dotenv';
 import { dbConnect } from './configs/database.config';
 import orderRouter from "./routers/order.router";
+import path from 'path';
 
 dotenv.config();
 
@@ -16,7 +17,8 @@ app.use(express.json());
 
 app.use(cors({
     credentials: true,
-    origin: ["http://localhost:4200"]
+    //origin: ["http://localhost:4200"]
+    origin: ["http://localhost:4200", "https://computer-solution-technology.web.app"]
 }));
 
 app.use('/assets', express.static('controller/assets'));
@@ -24,6 +26,20 @@ app.use('/assets', express.static('controller/assets'));
 app.use("/api/products", productRouter);
 app.use("/api/users", userRouter);
 app.use("/api/orders", orderRouter);
+
+// Serve static files for the frontend
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Handle client-side routing
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+const port = 5000;
+app.listen(port, () => {
+    console.log("Backend: Website served on http://localhost:" + port);
+});
+
 
 /*
 app.get("/", (req, res) => {
@@ -92,7 +108,3 @@ const generateTokenReponse = (user: any) => {
       return user;
 }
 */
-const port = 5000;
-app.listen(port, () => {
-    console.log("Backend: Website served on http://localhost:" + port);
-});
