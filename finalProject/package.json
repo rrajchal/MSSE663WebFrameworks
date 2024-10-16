@@ -9,6 +9,6 @@
     "start": "cd backend/built && node server.js",
     "prebuild": "cd backend && npm run build",
     "build": "cd frontend && npm run build",
-    "full-build": "npm run prebuild && npm run build"
+    "full-build": "npm run prebuild && npm run build && cd backend && npm start"
   }
 }
