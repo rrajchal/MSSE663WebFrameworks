@@ -22,6 +22,9 @@ I have developed a web application for a Computer Solution Technology service th
 
 ### Project Repository
 The final project is hosted on GitHub and can be accessed here.
-https://github.com/rrajchal/MSSE663WebFrameworks/tree/final_project_rajesh/finalProject
+- https://github.com/rrajchal/MSSE663WebFrameworks/tree/final_project_rajesh/finalProject<br>
+- The deployment site is created in a new Git.
+   - https://github.com/rrajchal/MSSE663WebFrameworks/tree/setup-github-actions/finalProject<br>
+   - Deployment: https://computer-solution-technology.web.app/<br>
 
 Feel free to explore the repository and let me know if you have any questions or need further assistance!
